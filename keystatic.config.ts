@@ -1,4 +1,5 @@
-import { config, collection, fields } from '@keystatic/core';
+import { config, collection, fields } from '@keystatic/core'
+import { __experimental_mdx_field } from '@keystatic/core/form/fields/markdoc'
 
 export default config({
   storage: {
@@ -12,14 +13,8 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
-        content: fields.document({
-          label: 'Content',
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: true,
-        }),
+        content: __experimental_mdx_field({ label: 'Content' }),
       },
     }),
   },
-});
+})
